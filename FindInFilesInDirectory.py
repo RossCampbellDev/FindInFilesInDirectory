@@ -19,9 +19,11 @@ def getFileNames(searchRoot, fileExtension):
 # yields the lines in a file, as well as passing forward the file name
 def getLinesInFiles(files):
     for f in files:
-        for line in f:
-            yield line, f.name
-
+        try:
+            for line in f:
+                yield line, f.name
+        except:
+            pass
 
 # yields the line that contains the search term
 def findTermInLines(lines, thisFile, searchTerm=None):
